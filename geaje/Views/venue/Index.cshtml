@@ -1,0 +1,69 @@
+﻿@model IEnumerable<geaje.Models.venueModel>
+
+@{
+    ViewBag.Title = "Venue";
+}
+
+<h2>Venue</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create", new { }, new { @class = "btn", @style = "background-color: #DA1C5C;color: #ffff" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.desaModel.desa_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.kecModel.kec_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.kotaModel.kota_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.venue_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.alamat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.deskripsi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.harga)
+        </th>
+        <th>Aksi</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.desaModel.desa_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.kecModel.kec_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.kotaModel.kota_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.venue_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.alamat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.deskripsi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.harga)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.venue_id }, new { @class = "btn", @style = "background-color:#ffee6e;color: #ffff" }) |
+            @Html.ActionLink("Details", "Details", new { id=item.venue_id }, new { @class = "btn", @style = "background-color:#46e353;color: #ffff" }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.venue_id }, new { @class = "btn", @style = "background-color:#1f1e1e; color: #ffff" })
+        </td>
+    </tr>
+}
+
+</table>

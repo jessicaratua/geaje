@@ -1,0 +1,97 @@
+﻿@model IEnumerable<geaje.Models.venueModel>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <style>
+        h1 {
+            font-family: Break Dance;
+            color: #DA1C5C;
+            position:absolute;
+            left:40%;
+        }
+        .batas{
+            margin-top:100px;
+        }
+        h3{
+            font-family:Poppins;
+            margin-bottom:20px;
+             
+        }
+        .admin{
+            position:absolute;
+            left:91%;
+        }
+        
+        
+    </style>
+</head>
+<body style="margin-left:50px;margin-right:50px;">
+    <h1>Welcome to Geaje</h1>
+    <div class="batas"></div>
+    <div class="admin"><td>@Html.ActionLink("Admin", "Index", "login", new { }, new { @class = "btn", @style = "background-color:#46e353;color:#ffff;" })</td></div>
+    <tr>
+        <td>@Html.ActionLink("Buat Booking", "Create", "custBook", new { }, new {@class="btn",@style= "background-color:#DA1C5C;color:#ffff;" })</td>
+        <td></td>
+        
+    </tr>
+        
+        
+    </p>
+    <center>
+        <h3>Daftar Gedung</h3>
+    </center>
+    
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.venue_name)
+            </th>
+
+
+            <th>
+                @Html.DisplayNameFor(model => model.harga)
+            </th>
+            <th>
+                Detail
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.venue_name)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.harga)
+                </td>
+                <td>
+
+                    @Html.ActionLink("Details", "Details", new { id = item.venue_id }, new { @class = "btn", @style = "background-color:#ffee6e;color:black;" })
+                    
+                </td>
+            </tr>
+        }
+
+    </table>
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+    }
+</body>
+</html>

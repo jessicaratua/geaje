@@ -1,0 +1,45 @@
+﻿@model IEnumerable<geaje.Models.adminModel>
+
+@{
+    ViewBag.Title = "Admin";
+}
+
+<h2>Admin</h2>
+
+<p>
+    @Html.ActionLink("Tambah Admin", "Create", new { }, new {@class="btn", @style="background-color: #DA1C5C;color: #ffff"})
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.admin_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.username)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.password)
+        </th>
+        <th>Aksi</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.admin_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.username)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.password)
+        </td>
+        <td >
+            @Html.ActionLink("Edit", "Edit", new { id=item.admin_id }, new {@class="btn" ,@style= "background-color:#ffee6e;color: #ffff" }) |
+            @Html.ActionLink("Details", "Details", new { id=item.admin_id}, new { @class = "btn", @style = "background-color:#46e353;color: #ffff" }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.admin_id }, new { @class = "btn", @style = "background-color:#1f1e1e; color: #ffff" })
+        </td>
+    </tr>
+}
+
+</table>

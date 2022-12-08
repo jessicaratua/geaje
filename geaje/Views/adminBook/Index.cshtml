@@ -1,0 +1,54 @@
+﻿@model IEnumerable<geaje.Models.bookModel>
+
+@{
+    ViewBag.Title = "Booking";
+}
+
+<h2>Booking</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.venueModel.venue_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.customer_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tanggal_book)
+        </th>
+        <th>
+            Total Harga
+        </th>
+        <th>
+            Aksi
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.venueModel.venue_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.customer_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tanggal_book)
+        </td>
+        <td>
+            @{int totalHarga = item.venueModel.harga * item.lama_book;}
+            @Html.DisplayFor(x => totalHarga)
+        </td>
+        
+        <td>
+      
+            @Html.ActionLink("Details", "Details", new { id=item.booking_id }, new { @class = "btn", @style = "background-color:#46e353;color: #ffff" }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.booking_id }, new { @class = "btn", @style = "background-color:#1f1e1e; color: #ffff" })
+        </td>
+    </tr>
+}
+
+</table>

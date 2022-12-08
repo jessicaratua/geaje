@@ -1,0 +1,66 @@
+﻿@model geaje.Models.adminModel
+
+@{
+    ViewBag.Title = "Details Admin";
+}
+<style>
+    .detail {
+        position: absolute;
+        left: 40%;
+        top: 30%;
+        border: 1px solid #DA1C5C;
+        padding-left: 30px;
+        padding-right: 30px;
+        background-color: #DA1C5C;
+        border-radius: 8px;
+        margin-bottom: 50px;
+    }
+    dd {
+        margin-bottom: 10px;
+        color: white;
+    }
+
+    dt {
+        color: #2BAEC0;
+    }
+    h2 {
+        color: #2BAEC0;
+    }
+    
+</style>
+
+<div class="detail">
+    
+<h2>Details Admin</h2>
+    <hr />
+    <dl class="">
+        <dt>
+            @Html.DisplayNameFor(model => model.admin_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.admin_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.username)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.username)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.password)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.password)
+        </dd>
+
+    </dl>
+</div>
+<p class="tombol">
+    @Html.ActionLink("Edit", "Edit", new { id = Model.admin_id }, new {@class="btn",@style= "background-color:#ffee6e;color: #ffff;margin-top:30px;" }) 
+    @Html.ActionLink("Back", "Index", new { }, new {@class="btn",@style= "background-color:#1f1e1e; color: #ffff;margin-top:30px;" })
+</p>

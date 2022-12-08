@@ -1,0 +1,47 @@
+﻿@model geaje.Models.adminModel
+
+@{
+    ViewBag.Title = "Hapus Admin";
+}
+
+
+<h3>Apakah kamu yakin ingin menghapus ?</h3>
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.admin_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.admin_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.username)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.username)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.password)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.password)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn" style="background-color: #DA1C5C;color:aliceblue" /> |
+            @Html.ActionLink("Back", "Index", new { }, new {@class="btn",@style="background-color: #1f1e1e;color:aliceblue"})
+        </div>
+    }
+</div>

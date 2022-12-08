@@ -1,0 +1,126 @@
+﻿@model geaje.Models.venueModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Detail Venue</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <style>
+        h1 {
+            font-family: Break Dance;
+            color: #DA1C5C;
+            position: absolute;
+            left: 40%;
+        }
+
+        .batas {
+            margin-top: 100px;
+        }
+        body {
+            margin-left: 50px;
+            margin-right: 50px;
+        }
+        h2 {
+            font-family: poppins;
+            margin-bottom: 20px;
+            color: #2BAEC0;
+        }
+        .detail {
+            position: absolute;
+            left: 40%;
+            top: 30%;
+            border: 1px solid #DA1C5C;
+            padding-left: 30px;
+            padding-right: 30px;
+            background-color: #DA1C5C;
+            border-radius: 8px;
+            margin-bottom: 50px;
+        }
+        dd {
+            margin-bottom: 10px;
+            color: white;
+        }
+        dt {
+            color: #2BAEC0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to Geaje</h1>
+    <div class="batas"></div>
+    <div class="detail">
+        <h2>Detail Venue</h2>
+        <hr />
+        <dl class="">
+            <dt>
+                @Html.DisplayNameFor(model => model.venue_name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.venue_name)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.desaModel.desa_name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.desaModel.desa_name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.kecModel.kec_name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.kecModel.kec_name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.kotaModel.kota_name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.kotaModel.kota_name)
+            </dd>
+
+
+
+            <dt>
+                @Html.DisplayNameFor(model => model.alamat)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.alamat)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.deskripsi)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.deskripsi)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.harga)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.harga)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Back", "Index", new { }, new { @class = "btn", @style= "background-color: #1f1e1e;color: #ffff" })
+    </p>
+    <hr />
+</body>
+</html>

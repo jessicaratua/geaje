@@ -1,0 +1,118 @@
+﻿@model geaje.Models.adminModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <style>
+        h1 {
+            font-family: Break Dance;
+            position: absolute;
+            color: #DA1C5C;
+            left: 39%;
+            top: 20%;
+        }
+        body {
+            background-color: #2BAEC0;
+        }
+
+        #login-div {
+            position: absolute;
+            left: 40%;
+            top: 40%;
+            border: 1px solid #DA1C5C;
+            padding: 30px 30px;
+            background-color: #DA1C5C;
+            border-radius: 8px;
+        }
+
+    
+ 
+
+        button, input, optgroup, select, textarea {
+            margin-bottom: 10px;
+        }
+        .login {
+            margin-top: 10px;
+            padding: 7px;
+            background-color: #2BAEC0;
+            color: #DA1C5C ;
+            border:0px;
+            border-radius: 5px;
+            padding-left: 10px;
+            padding-right: 10px;
+            font-weight:600;
+            margin-left:55px;
+        }
+    </style>
+</head>
+<body>
+        <h1>Welcome To Geaje</h1>
+    <div id="login-div">
+        @using (Html.BeginForm("Autherize", "login", FormMethod.Post))
+        {
+            <table>
+                <tr>
+
+                    <td id="sign" style="font-family: Poppins; font-size: 25px; padding-bottom: 20px; color: #2BAEC0; padding-left: 50px; "><b>LOGIN</b></td>
+
+                </tr>
+
+                <tr>
+                    <td style="font-family: Poppins; color:aliceblue">
+                        @Html.LabelFor(model => model.username)
+                        
+
+                    </td>
+                </tr>
+                <tr>
+                    
+
+                    <td style="border-radius:10px">
+                        @Html.EditorFor(model => model.username)
+                    </td>
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td>@Html.ValidationMessageFor(model => model.username)</td>
+                </tr>
+                <tr>
+                    <td style="font-family:Poppins;color:aliceblue">
+                        @Html.LabelFor(model => model.password)
+                       
+                    </td>
+                </tr>
+
+                <tr>
+                    
+                    <td>
+                        @Html.EditorFor(model => model.password)
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>@Html.ValidationMessageFor(model => model.password)</td>
+                </tr>
+
+
+                <tr>
+                    
+                    <td>
+                        @Html.ActionLink("Back", "Index", "customer", new { }, new {@class="btn",@style= "background-color:#1f1e1e;color:#DA1C5C;font-weight:600;" })
+                        <input type="submit" name="name" value="Login" class="login" style="font-family:Poppins; " />
+                    </td>
+                </tr>
+            </table>
+        }
+    </div>
+</body>
+</html>
